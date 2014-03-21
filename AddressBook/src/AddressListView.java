@@ -24,6 +24,18 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.FormPanel.SubmitCompleteEvent;
 import com.google.gwt.user.client.ui.FormPanel.SubmitEvent;
+import com.google.maps.gwt.client.Geocoder;
+import com.google.maps.gwt.client.GeocoderRequest;
+import com.google.maps.gwt.client.GeocoderResult;
+import com.google.maps.gwt.client.GeocoderStatus;
+import com.google.maps.gwt.client.GoogleMap;
+import com.google.maps.gwt.client.LatLng;
+import com.google.maps.gwt.client.MapOptions;
+import com.google.maps.gwt.client.MapTypeId;
+import com.google.maps.gwt.client.Marker;
+import com.google.maps.gwt.client.MarkerOptions;
+import com.google.maps.gwt.client.Geocoder.Callback;
+
 
 public class AddressListView {
 	private AddressList control;
@@ -127,55 +139,47 @@ public class AddressListView {
 			nameRow.add(nameTextbox);
 			postFormPanel.add(nameRow);
 
-			// Address input
-			HorizontalPanel titleRow = new HorizontalPanel();
-			Label titleLabel = new Label("Address");
-			final TextBox titleTextbox = new TextBox();
-			titleRow.add(titleLabel);
-			titleRow.add(titleTextbox);
-			postFormPanel.add(titleRow);
-
-			// Title input
-			HorizontalPanel titleRow = new HorizontalPanel();
-			Label titleLabel = new Label("City");
-			final TextBox titleTextbox = new TextBox();
-			titleRow.add(titleLabel);
-			titleRow.add(titleTextbox);
-			postFormPanel.add(titleRow);
+			// City input
+			HorizontalPanel cityRow = new HorizontalPanel();
+			Label cityLabel = new Label("City");
+			final TextBox cityTextbox = new TextBox();
+			cityRow.add(cityLabel);
+			cityRow.add(cityTextbox);
+			postFormPanel.add(cityRow);
 			
-			// Title input
-			HorizontalPanel titleRow = new HorizontalPanel();
-			Label titleLabel = new Label("State");
-			final TextBox titleTextbox = new TextBox();
-			titleRow.add(titleLabel);
-			titleRow.add(titleTextbox);
-			postFormPanel.add(titleRow);
+			// State input
+			HorizontalPanel stateRow = new HorizontalPanel();
+			Label stateLabel = new Label("State");
+			final TextBox stateTextbox = new TextBox();
+			stateRow.add(stateLabel);
+			stateRow.add(stateTextbox);
+			postFormPanel.add(stateRow);
 			
-			// Price input
-			HorizontalPanel priceRow = new HorizontalPanel();
-			Label priceLabel = new Label("Zip");
-			final TextBox priceTextbox = new TextBox();
-			priceTextbox.setVisibleLength(5);
-			priceRow.add(priceLabel);
-			priceRow.add(priceTextbox);
-			postFormPanel.add(priceRow);
+			// Zip input
+			HorizontalPanel zipRow = new HorizontalPanel();
+			Label zipLabel = new Label("Zip");
+			final TextBox zipTextbox = new TextBox();
+			zipTextbox.setVisibleLength(5);
+			zipRow.add(zipLabel);
+			zipRow.add(zipTextbox);
+			postFormPanel.add(zipRow);
 
-			// Title input
-			HorizontalPanel titleRow = new HorizontalPanel();
-			Label titleLabel = new Label("email");
-			final TextBox titleTextbox = new TextBox();
-			titleRow.add(titleLabel);
-			titleRow.add(titleTextbox);
-			postFormPanel.add(titleRow);
+			// Email input
+			HorizontalPanel emailRow = new HorizontalPanel();
+			Label emailLabel = new Label("E-mail");
+			final TextBox emailTextbox = new TextBox();
+			emailRow.add(emailLabel);
+			emailRow.add(emailTextbox);
+			postFormPanel.add(emailRow);
 
-			// Price input
-			HorizontalPanel priceRow = new HorizontalPanel();
-			Label priceLabel = new Label("Phone");
-			final TextBox priceTextbox = new TextBox();
-			priceTextbox.setVisibleLength(10);
-			priceRow.add(priceLabel);
-			priceRow.add(priceTextbox);
-			postFormPanel.add(priceRow);
+			// Phone input
+			HorizontalPanel phoneRow = new HorizontalPanel();
+			Label phoneLabel = new Label("Phone");
+			final TextBox phoneTextbox = new TextBox();
+			phoneTextbox.setVisibleLength(10);
+			phoneRow.add(phoneLabel);
+			phoneRow.add(phoneTextbox);
+			postFormPanel.add(phoneRow);
 			
 			// Address input EXTRA CREDIT!
 			HorizontalPanel addressRow = new HorizontalPanel();
@@ -187,6 +191,7 @@ public class AddressListView {
 			addressRow.add(addressText);
 			postFormPanel.add(addressRow);
 
+			// EDIT THIS PLEASE
 			if(post!=null) {
 				nameTextbox.setText(post.getSellerName());
 				titleTextbox.setText(post.getTitle());
