@@ -293,15 +293,15 @@ public class AddressListView {
 		}
 
 		// Next two methods are Helper methods to create list of posts
-		private void makePostTable(List<PostData> posts, FlowPanel flowPanel, VerticalPanel mainPanel) {
-			for(PostData post: posts){
+		private void makePostTable(List<EntryData> posts, FlowPanel flowPanel, VerticalPanel mainPanel) {
+			for(EntryData post: posts){
 				if(post !=null)
 					flowPanel.add(makePostRow(post, mainPanel));
 				else System.out.println("null post");
 			}
 		}
 
-		private HorizontalPanel makePostRow(final PostData post, final VerticalPanel mainPanel) {
+		private HorizontalPanel makePostRow(final EntryData post, final VerticalPanel mainPanel) {
 			HorizontalPanel row = new HorizontalPanel();
 			Label titleLabel = new Label("Title: "+post.getTitle()+" ");
 			titleLabel.addStyleName("postLabel");
@@ -477,7 +477,7 @@ public class AddressListView {
 
 		// Method response to user click of "Address" button in a post row
 		// Causes popup panel to appear
-		protected void doMapPopup(PostData post) {		
+		protected void doMapPopup(EntryData post) {		
 			VerticalPanel content = new VerticalPanel();
 			content.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
 			final String address = post.getAddress();
