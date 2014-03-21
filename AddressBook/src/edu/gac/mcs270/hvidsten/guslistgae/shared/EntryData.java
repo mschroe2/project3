@@ -1,7 +1,7 @@
 /*
  * PostData class.  Represents a posted ad. 
  */
-package shared;
+package edu.gac.mcs270.hvidsten.guslistgae.shared;
 
 import java.io.Serializable;
 
