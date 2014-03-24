@@ -33,7 +33,7 @@ public class AddressListModel {
 			//entry.getSeller();
 			//entry.getBuyer();
 	//	}
-		//return new ArrayList<EntryData>(entries);
+		//return new ArrayList<EntryData>(entries); BLOP BLOP
 	//}
   
 	public static void storeEntry(EntryData entry) {
@@ -96,7 +96,7 @@ public class AddressListModel {
 		// declare the parameter type to be a String
 		query.declareParameters("String titleVal");
 		// Execute the query with the String given by titleStr
-		// Query returns a list of PostData objects matching the query
+		// Query returns a list of EntryData objects matching the query
 		List<EntryData> entries = (List<EntryData>) query.execute(titleStr);
 		return new ArrayList<EntryData>(entries);
 	}
